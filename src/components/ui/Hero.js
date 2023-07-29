@@ -20,7 +20,7 @@ const HeroSection = () => {
       }}
     >
       <Typography variant="h2" style={{fontWeight:'800', color:"#619A52"}} component="h1" gutterBottom>
-        Build Your PC
+      Welcome To Pc Mart
       </Typography>
       <Typography variant="h5" style={{fontWeight:"700",color:"#619A52"}} gutterBottom>
         Customize and create your dream PC!

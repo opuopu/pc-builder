@@ -13,6 +13,7 @@ import { useRouter } from "next/router";
 import { signIn } from "next-auth/react";
 import { toast } from "react-hot-toast";
 import dynamic from "next/dynamic";
+import { customColor } from "../../../utils/colors";
 const RootLayout = dynamic(
   () => import("../../components/layouts/RootLayout"),
   {
@@ -42,9 +43,9 @@ const Login = () => {
   return (
     <Row justify="center" align="middle" style={{ minHeight: "100vh" }}>
       <Col xs={20} sm={16} md={12} lg={8}>
-        <Card title="Login" style={{ textAlign: "center" }}>
-          <Form onFinish={handleSubmit(onSubmit)}>
-            <Form.Item>
+        <Card  title="Login" style={{ textAlign: "center",backgroundColor:customColor.bgColor }}>
+          <Form onFinish={handleSubmit(onSubmit)} >
+            <Form.Item style={{backgroundColor:customColor.cardColor}}>
               <Controller
                 name="email"
                 control={control}

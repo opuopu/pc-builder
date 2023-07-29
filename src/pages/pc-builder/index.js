@@ -18,6 +18,8 @@ import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { usePostProductsMutation } from "@/redux/features/order/orderSlice";
 import { toast } from "react-hot-toast";
+import { colors } from "@mui/material";
+import { customColor } from "../../../utils/colors";
 const RootLayout = dynamic(
   () => import("../../components/layouts/RootLayout"),
   {
@@ -74,18 +76,22 @@ export default function PcBuilderPage() {
 
   return (
     <>
-      <Button
+    
+
+
+      <Button 
         disabled={!allCategoriesSelected}
         onClick={() => handleAddToCart(selectedProducts)}
         variant="outlined"
-        color="primary"
+        color={customColor.buttonSecondery}
+        
       >
         Add to Cart
       </Button>
       <Button variant="outlined" color="primary">
         Total Price: ${getTotalPrice()}
       </Button>
-      <TableContainer component={Paper}>
+      <TableContainer component={Paper} style={{backgroundColor:customColor.cardColor}}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
@@ -107,8 +113,8 @@ export default function PcBuilderPage() {
                   {Array.isArray(selectedProducts[row?.categories_name]) &&
                     selectedProducts[row?.categories_name].map((p) => (
                       <React.Fragment key={p?.name}>
-                        <p>{p?.name}</p>
-                        <p>{p?.price}</p>
+                        <p color="white">{p?.name}</p>
+                        <p color="white">{p?.price}</p>
                         <IconButton
                           onClick={() => handleRemove(p?.category, p?.name)}
                           align="right"
