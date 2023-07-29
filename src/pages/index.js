@@ -11,17 +11,17 @@ import Footer from "@/components/ui/Footer";
 const RootLayout = dynamic(() => import("../components/layouts/RootLayout"), {
   ssr: false,
 });
-const HomePage = ({ products }) => {
+const HomePage = ({ products ,categories}) => {
   console.log(products)
 
-  const { data: category } = useGetCategoryQuery(null);
+  // const { data: category } = useGetCategoryQuery(null);
 
   return (
     <div>
 
       <HeroSection />
       <AllProducts products={products} />
-      <Category category={category} />
+      <Category category={categories} />
       {/* <Footer /> */}
     </div>
   );
@@ -34,6 +34,8 @@ HomePage.getLayout = function getLayout(page) {
 export const getStaticProps = async () => {
   const res = await fetch("http://localhost:3000/api/products");
   const products = await res.json();
-
-  return { props: { products } };
+  const cateres = await fetch("http://localhost:3000/api/categories");
+  const categories = await cateres.json();
+          
+  return { props: { products,categories } };
 };
