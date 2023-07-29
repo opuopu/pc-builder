@@ -43,7 +43,7 @@ const Login = () => {
   return (
     <Row justify="center" align="middle" style={{ minHeight: "100vh" }}>
       <Col xs={20} sm={16} md={12} lg={8}>
-        <Card  title="Login" style={{ textAlign: "center" }}>
+        <Card  title="Login" style={{ textAlign: "center"}}>
           <Form onFinish={handleSubmit(onSubmit)} >
             <Form.Item style={{backgroundColor:customColor.cardColor}}>
               <Controller
@@ -102,14 +102,14 @@ const Login = () => {
               </Button>
             </Form.Item>
           </Form>
-          <p color="white">
+          <p >
             Don't have an account?{" "}
             <Link href="/register">
               <span>Register</span>
             </Link>
           </p>
           <div>
-            <Button onClick={()=>signIn("google",{
+            <Button   onClick={()=>signIn("google",{
               callbackUrl:callbackUrl || "https://pc-builder-two.vercel.app/"
             })} type="danger" icon={<GoogleOutlined />} size="large">
               Login with Google

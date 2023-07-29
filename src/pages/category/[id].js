@@ -14,6 +14,7 @@ import {
 
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import { customColor } from "../../../utils/colors";
 const RootLayout = dynamic(
   () => import("../../components/layouts/RootLayout"),
   {
@@ -34,6 +35,7 @@ const CategoryProducts = () => {
       style={{
         marginBottom: "4rem",
         padding: "4rem",
+        backgrundColor:customColor.cardColor.cardColor
       }}
     >
       <Typography variant="h4" component="h1" gutterBottom></Typography>
@@ -45,6 +47,7 @@ const CategoryProducts = () => {
               style={{
                 width: "100%",
                 height: cardHeight,
+                backgroundColor:customColor
               }}
             >
               <CardActionArea>
@@ -65,23 +68,26 @@ const CategoryProducts = () => {
                     style={{
                       marginBottom: "1rem",
                       fontWeight: 600,
+                      color:"#96A2B4"
                     }}
                   >
-                    Category: {product.category}
+                {product?.name}
                   </Typography>
                   <Typography
                     variant="body1"
                     style={{
                       marginBottom: "1rem",
                       fontWeight: 600,
+                      color:"#96A2B4"
                     }}
                   >
-                    Name: {product.name}
+                 {product.category}
                   </Typography>
                   <Typography
                     variant="body1"
                     style={{
                       marginBottom: "0.5rem",
+                      color:"#96A2B4"
                     }}
                   >
                     Price: ${product.price}
@@ -90,6 +96,7 @@ const CategoryProducts = () => {
                     variant="body1"
                     style={{
                       marginBottom: "0.5rem",
+                      color:"#96A2B4"
                     }}
                   >
                     Status: {product.status}
@@ -98,6 +105,7 @@ const CategoryProducts = () => {
                     variant="body1"
                     style={{
                       marginBottom: "0.5rem",
+                      color:"#96A2B4"
                     }}
                   >
                     Average Rating: {product.average_rating}

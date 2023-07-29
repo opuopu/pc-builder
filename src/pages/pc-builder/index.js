@@ -106,15 +106,16 @@ export default function PcBuilderPage() {
                 key={row?.categories_name}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
-                <TableCell component="th" scope="row">
+                <TableCell component="th" style={{color:"#ffff"}} scope="row">
                   {row.categories_name}
+                  <p>dhaa</p>
                 </TableCell>
                 <TableCell>
                   {Array.isArray(selectedProducts[row?.categories_name]) &&
                     selectedProducts[row?.categories_name].map((p) => (
                       <React.Fragment key={p?.name}>
-                        <p color="white">{p?.name}</p>
-                        <p color="white">{p?.price}</p>
+                        <p >{p?.name}</p>
+                        <p>{p?.price}</p>
                         <IconButton
                           onClick={() => handleRemove(p?.category, p?.name)}
                           align="right"

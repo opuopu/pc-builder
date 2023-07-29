@@ -28,7 +28,7 @@ const ProductCategory = ({ products }) => {
         component="h1"
         gutterBottom
       >
-        Our Categories Products
+        Our Products
       </Typography>
       <Grid container spacing={3} mt={4}>
         {products?.category?.map((product) => (

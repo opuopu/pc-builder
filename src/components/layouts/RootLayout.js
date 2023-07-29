@@ -27,6 +27,7 @@ import ImportantDevicesIcon from "@mui/icons-material/ImportantDevices";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { useGetCategoryQuery } from "@/redux/features/category/categoryApi";
+import { customColor } from "../../../utils/colors";
 const Navbar = ({ children }) => {
   const { data: categoryItem } = useGetCategoryQuery(null);
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -155,13 +156,13 @@ const Navbar = ({ children }) => {
 
               <div>
                 {session?.user ? (
-                  <Button style={{ color: "#f1f8e9" }} onClick={handleLogout}>
+                  <Button style={{ color: "#fff" ,fontWeight:"600",backgroundColor:"red" }} onClick={handleLogout}>
                     <LogoutIcon />
                     Logout
                   </Button>
                 ) : (
                   <Link href="/login">
-                    <Button style={{ color: "#f1f8e9" }}>
+                    <Button  style={{ color: "#fff" ,fontWeight:"600",backgroundColor:customColor.buttonColor }}>
                       <LoginIcon />
                       Login
                     </Button>
