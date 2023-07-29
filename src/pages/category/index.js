@@ -20,8 +20,8 @@ const ProductCategory = ({ category }) => {
         padding: "4rem",
       }}
     >
-      <Typography variant="h4" component="h1" gutterBottom>
-        Our Product Categories
+      <Typography style={{textAlign:"center",color:"#2196F3" ,fontWeight:"600"}} variant="h4" component="h1" gutterBottom>
+      Our Product Categories
       </Typography>
       <Grid container spacing={3} mt={4}>
         {category?.category?.map((c) => (

@@ -43,7 +43,7 @@ const Login = () => {
   return (
     <Row justify="center" align="middle" style={{ minHeight: "100vh" }}>
       <Col xs={20} sm={16} md={12} lg={8}>
-        <Card  title="Login" style={{ textAlign: "center",backgroundColor:customColor.bgColor }}>
+        <Card  title="Login" style={{ textAlign: "center" }}>
           <Form onFinish={handleSubmit(onSubmit)} >
             <Form.Item style={{backgroundColor:customColor.cardColor}}>
               <Controller
@@ -102,7 +102,7 @@ const Login = () => {
               </Button>
             </Form.Item>
           </Form>
-          <p>
+          <p color="white">
             Don't have an account?{" "}
             <Link href="/register">
               <span>Register</span>
