@@ -28,6 +28,7 @@ const nextConfig = {
       "www.gskill.com",
       "m.media-amazon.com",
       "www.techlandbd.com",
+      "www.shutterstock.com",
       "www.elnekhelytechnology.com",
     ],
   },
