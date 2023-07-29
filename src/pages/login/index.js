@@ -22,6 +22,7 @@ const RootLayout = dynamic(
 const Login = () => {
   const { control, handleSubmit } = useForm();
   const router = useRouter();
+  const {callbackUrl} =  router.query
   const onSubmit = async (e) => {
     const data = await signIn("credentials", {
       email: e?.email,
@@ -107,10 +108,14 @@ const Login = () => {
             </Link>
           </p>
           <div>
-            <Button type="danger" icon={<GoogleOutlined />} size="large">
+            <Button onClick={()=>signIn("google",{
+              callbackUrl:callbackUrl || "http://localhost:3000/"
+            })} type="danger" icon={<GoogleOutlined />} size="large">
               Login with Google
             </Button>
-            <Button type="default" icon={<GithubOutlined />} size="large">
+            <Button type="default" onClick={()=>signIn("github",{
+              callbackUrl:callbackUrl||"http://localhost:3000/"
+            })} icon={<GithubOutlined />} size="large">
               Login with GitHub
             </Button>
           </div>

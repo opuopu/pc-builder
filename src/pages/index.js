@@ -13,10 +13,12 @@ const RootLayout = dynamic(() => import("../components/layouts/RootLayout"), {
 });
 const HomePage = ({ products }) => {
   console.log(products)
+
   const { data: category } = useGetCategoryQuery(null);
 
   return (
     <div>
+
       <HeroSection />
       <AllProducts products={products} />
       <Category category={category} />

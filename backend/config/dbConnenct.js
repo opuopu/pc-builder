@@ -1,23 +1,16 @@
-import { MongoClient } from "mongodb";
+import mongoose from "mongoose";
 
 const dbConnect = async () => {
-  // Check if the connection already exists
-  if (dbConnect.client) {
+  if (mongoose.connection.readyState >= 1) {
     return;
   }
 
+  mongoose.set("strictQuery", false);
   try {
-    // Replace the connection string with your specific MongoDB driver link
-    const uri = "mongodb+srv://pcbuilder:zgAZH1P1E6305L70@cluster0.dgoei.mongodb.net/pc-builder";
-
-    const client = await MongoClient.connect(uri, {
+    await mongoose.connect("mongodb+srv://pcbuilder:T3c3LOMXut8IdWr9@cluster0.dgoei.mongodb.net/pc-builder?retryWrites=true&w=majority", {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
-
-    // Save the client instance to reuse the connection
-    dbConnect.client = client;
-
     console.log("MongoDB connected successfully");
   } catch (error) {
     console.error("Error connecting to MongoDB:", error.message);
