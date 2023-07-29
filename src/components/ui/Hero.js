@@ -7,7 +7,7 @@ const HeroSection = () => {
     <Box
       sx={{
         background:
-          'url("https://images.pexels.com/photos/2330137/pexels-photo-2330137.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")', // Update with the actual image file name
+          'url("https://images.unsplash.com/photo-1616266126575-1471ec059439?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGNvbXB1dGVyJTIwZGFya3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60")', // Update with the actual image file name
         backgroundSize: "cover",
         backgroundPosition: "center",
         height: "calc(100vh - 64px)", // Adjust the height as needed (excluding the header height)
@@ -19,15 +19,15 @@ const HeroSection = () => {
         color: "#fff",
       }}
     >
-      <Typography variant="h2" component="h1" gutterBottom>
+      <Typography variant="h2" style={{fontWeight:'800', color:"#619A52"}} component="h1" gutterBottom>
         Build Your PC
       </Typography>
-      <Typography variant="h5" gutterBottom>
+      <Typography variant="h5" style={{fontWeight:"700",color:"#619A52"}} gutterBottom>
         Customize and create your dream PC!
       </Typography>
 
       <Link href={"/pc-builder"}>
-        <Button variant="contained" color="primary" size="large">
+        <Button variant="contained" color="primary" style={{backgroundColor:"#4758B8",fontWeight:"600"}} size="large">
           Get Started
         </Button>
       </Link>

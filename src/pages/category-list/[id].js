@@ -31,6 +31,7 @@ console.log(data)
   //  const { data } = useGetCategoryByNameQuery(id);
   const products = data?.products;
 
+
   const handleAdd = (product) => {
     addProduct(product);
     router.push("/pc-builder");
@@ -158,12 +159,13 @@ console.log(data)
                   </Button>
                 </Link>
                 <Button
-                  onClick={() => handleAdd(product)}
-                  variant="solid"
-                  color="primary"
-                >
-                  Add to build
-                </Button>
+        onClick={() => handleAdd(product)}
+        variant="solid"
+        color="primary"
+        disabled={product.status === "Out of Stock"}
+      >
+        {product.status === "Out of Stock" ? "Out of Stock" : "Add to build"}
+      </Button>
               </Box>
             </CardContent>
           </Card>

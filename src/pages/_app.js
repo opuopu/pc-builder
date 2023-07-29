@@ -1,14 +1,17 @@
 import { AuthProvider } from "@/context/AuthContext";
 import { SessionProvider } from "next-auth/react";
 import { Provider } from "react-redux";
+import '../styles/globals.css'
 import { Toaster } from "react-hot-toast";
 import { store } from "@/redux/store";
 import { ProductProvider } from "@/context/ProductContext";
+
 export default function App({ Component, pageProps }) {
   const getLayout = Component.getLayout || ((page) => page);
 
   return (
-    <Provider store={store}>
+   
+  <Provider store={store}>
       <ProductProvider>
         <AuthProvider>
           <Toaster position="bottom-right" />
@@ -18,5 +21,7 @@ export default function App({ Component, pageProps }) {
         </AuthProvider>
       </ProductProvider>
     </Provider>
+   
+  
   );
 }

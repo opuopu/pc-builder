@@ -78,7 +78,7 @@ const Navbar = ({ children }) => {
 
   return (
     <>
-      <AppBar position="static" color={"primary"}>
+      <AppBar position="static" style={{backgroundColor:"#1A202E"}}>
         <Toolbar>
           {isXs || isSm ? (
             <IconButton
@@ -94,7 +94,7 @@ const Navbar = ({ children }) => {
             <>
               <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                 <Link href={"/"}>
-                  <Button style={{ color: "#f1f8e9" }}>Build Your PC</Button>
+                  <Button style={{ color: "#f1f8e9" }}>PC MART</Button>
                 </Link>
               </Typography>
               <List

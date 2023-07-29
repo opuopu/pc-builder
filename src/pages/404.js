@@ -1,7 +1,22 @@
 import React from "react";
 import Image from "next/image";
+import { useEffect } from "react";
+
+import { useRouter } from "next/router";
 
 const PageNotFound = () => {
+  const router = useRouter();
+
+  useEffect(() => {
+    // Redirect to the home page after 5 seconds
+    const redirectHome = setTimeout(() => {
+      router.push("/");
+    }, 5000);
+
+    // Clean up the timeout to avoid memory leaks
+    return () => clearTimeout(redirectHome);
+  }, [router]);
+
   return (
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
       <h1>Page not found</h1>

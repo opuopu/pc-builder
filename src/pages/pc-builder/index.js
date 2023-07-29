@@ -121,10 +121,10 @@ export default function PcBuilderPage() {
                     ))}
                 </TableCell>
                 <TableCell align="right">
-                  <Link href={`/category-list/${row._id}`}>
+               {   <Link href={`/category-list/${row._id}`}>
                     {" "}
                     <Button startDecorator={<Add />}>Choose</Button>
-                  </Link>
+                  </Link>}
               
                 </TableCell>
               </TableRow>
