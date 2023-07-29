@@ -14,18 +14,22 @@ import { useProductContext } from "@/context/ProductContext";
 import { toast } from "react-hot-toast";
 import Image from "next/image";
 
+
 const RootLayout = dynamic(
   () => import("../../components/layouts/RootLayout"),
   {
     ssr: false,
   }
 );
-const ProductList = () => {
+const ProductList = ({ categories,data }) => {
+
+console.log(data)
   const { addProduct } = useProductContext();
   const router = useRouter();
-  const id = router.query.id;
-  const { data } = useGetCategoryByNameQuery(id);
-  const products = data?.category?.products;
+// console.log(router.query)
+  // const id = router.query.id;
+  //  const { data } = useGetCategoryByNameQuery(id);
+  const products = data?.products;
 
   const handleAdd = (product) => {
     addProduct(product);
@@ -169,6 +173,24 @@ const ProductList = () => {
   );
 };
 export default ProductList;
+
+export const getServerSideProps = async (context) => {
+  const { id } = context.query;
+  const res = await fetch(`http://localhost:3000/api/categories`);
+  const categories = await res.json();
+  
+  // Extract the products with the matching ID from the first category
+  const data  = categories?.category?.find(product=> product._id ===id) || null
+
+
+
+  return {
+    props: { categories,data }
+  };
+};
+
+
+
 ProductList.getLayout = function getLayout(page) {
   return <RootLayout>{page}</RootLayout>;
 };

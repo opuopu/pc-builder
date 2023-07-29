@@ -6,8 +6,8 @@ const nextConfig = {
     NEXTAUTH_URL: "http://localhost:3000",
     DB_URL: "mongodb+srv://pcbuilder:T3c3LOMXut8IdWr9@cluster0.dgoei.mongodb.net/pc-builder?retryWrites=true&w=majority",
     API_URL: "http://localhost:3000",
-    GITHUB_ID: "8bf68c6c7037fb156343",
-    GITHUB_SECRET: "c5f5a1b326a54ed6791e34f0337da19f9115f957",
+    GITHUB_ID: "ad799b3f84153ed7ac9f",
+    GITHUB_SECRET: "04f4f1a51185442c0a97e6f151c38d4c5824aaf8",
     GOOGLE_CLIENT_ID:"387072395688-o0vqek713h4k7bg5ri367rl334afajv9.apps.googleusercontent.com",
     GOOGLE_CLIENT_SECRET:"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"
 
