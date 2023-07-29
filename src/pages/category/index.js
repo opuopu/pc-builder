@@ -6,12 +6,14 @@ import {
   CardActionArea,
   CardContent,
   Grid,
+  CardMedia,
 } from "@mui/material";
 import Link from "next/link";
 import Image from "next/image";
+import { Button } from "antd";
+import { customColor } from "../../../utils/colors";
 
-const ProductCategory = ({ category }) => {
-  // const cardWidth = 450;
+const ProductCategory = ({ products }) => {
   const cardHeight = 350;
   return (
     <Box
@@ -20,46 +22,49 @@ const ProductCategory = ({ category }) => {
         padding: "4rem",
       }}
     >
-      <Typography style={{textAlign:"center",color:"#2196F3" ,fontWeight:"600"}} variant="h4" component="h1" gutterBottom>
-      Our Product Categories
+      <Typography
+        style={{ textAlign: "center", color: "#2196F3", fontWeight: "600" }}
+        variant="h4"
+        component="h1"
+        gutterBottom
+      >
+        Our Categories Products
       </Typography>
       <Grid container spacing={3} mt={4}>
-        {category?.category?.map((c) => (
-          <Grid item key={c.id} xs={12} sm={6} md={4} lg={3}>
-            <Link
-              href={`/category/${c._id}`}
-              style={{ textDecoration: "none" }}
+        {products?.category?.map((product) => (
+          <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
+            
+            <Card
+              className="Card-root"
+              style={{
+                width: "100%",
+                height: cardHeight,
+                backgroundColor: "#1A202E",
+              }}
             >
-              <Card
-                className="Card-root"
-                style={{
-                  // maxWidth: cardWidth,
-                  width: "100%",
-                  height: cardHeight,
-                }}
+              <CardActionArea
+                style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
               >
-                <CardActionArea>
-                  <Image
-                    width={300}
-                    height={280}
-                    src={c.image}
-                    alt={c.categories_name}
-                  />
-                  <CardContent>
-                    <Typography
-                      variant="h5"
-                      component="h2"
-                      style={{
-                        marginBottom: "1rem",
-                        fontWeight: 600,
-                      }}
-                    >
-                      {c.categories_name}
-                    </Typography>
-                  </CardContent>
-                </CardActionArea>
-              </Card>
-            </Link>
+                <CardMedia
+                  component="img"
+                  style={{
+                    height: "200px",
+                    width: "100%",
+                    objectFit: "contain",
+                    padding: "14px",
+                  }}
+                  src={product.image}
+                  alt={product.name}
+                />
+                <Typography  style={{ color: "white",fontWeight:"600",margin:"6px 0" }} variant="h6">
+                  {product?.categories_name}
+                </Typography>
+                <Link href={`/category/${product?._id}`} passHref>
+                <button style={{padding:"10px 30px",borderRadius:"4px",backgroundColor:customColor.buttonColor,border:"none",color:"white",fontWeight:"400",fontSize:"16px",cursor:"pointer"}}>View All</button>
+                </Link>
+              </CardActionArea>
+            </Card>
+         
           </Grid>
         ))}
       </Grid>

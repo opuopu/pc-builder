@@ -21,7 +21,7 @@ const HomePage = ({ products ,categories}) => {
 
       <HeroSection />
       <AllProducts products={products} />
-      <Category category={categories} />
+      <Category products={categories} />
        <Footer />
     </div>
   );

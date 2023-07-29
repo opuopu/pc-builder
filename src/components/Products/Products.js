@@ -51,7 +51,7 @@ const AllProducts = ({ products }) => {
               color: "#96A2B4", // Set the text color to #96A2B4
             }}
           >
-            Category: {product.category}
+            {product.name}
           </Typography>
           <Typography
             variant="body1"
@@ -61,7 +61,8 @@ const AllProducts = ({ products }) => {
               color: "#96A2B4", // Set the text color to #96A2B4
             }}
           >
-            Name: {product.name}
+            
+            {product.category}
           </Typography>
           <Typography
             variant="body1"
