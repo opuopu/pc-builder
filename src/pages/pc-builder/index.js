@@ -76,26 +76,35 @@ export default function PcBuilderPage() {
 
   return (
     <>
-    
+ <div style={{ display: "flex", justifyContent: "flex-end", marginLeft:"4px", marginBottom:"6px", flexDirection: "row", gap: "14px", marginTop: "10px" }}>
+  <h3 style={{ color: "white" }}>
+    Total Price: ${getTotalPrice()}
+  </h3>
+  <Button
+    disabled={!allCategoriesSelected}
+    onClick={() => handleAddToCart(selectedProducts)}
+    style={{
+      backgroundColor: "red",
+      color: "white",
+      fontSize: "18px",
+      fontWeight: "600",
+      padding: "14px 24px",
+      width: "fit-content",
+      borderRadius: "8px" // This property makes the button take only necessary width
+    }}
+    color={customColor.buttonSecondary}
+  >
+    Add to Cart
+  </Button>
+</div>
 
 
-      <Button 
-        disabled={!allCategoriesSelected}
-        onClick={() => handleAddToCart(selectedProducts)}
-        variant="outlined"
-        color={customColor.buttonSecondery}
-        
-      >
-        Add to Cart
-      </Button>
-      <Button variant="outlined" color="primary">
-        Total Price: ${getTotalPrice()}
-      </Button>
-      <TableContainer component={Paper} style={{backgroundColor:customColor.cardColor}}>
+   
+      <TableContainer component={Paper} style={{backgroundColor:customColor.buttonSecondery}}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell>Devices</TableCell>
+              <TableCell >Devices</TableCell>
               <TableCell></TableCell>
             </TableRow>
           </TableHead>
@@ -108,7 +117,7 @@ export default function PcBuilderPage() {
               >
                 <TableCell component="th" style={{color:"#ffff"}} scope="row">
                   {row.categories_name}
-                  <p>dhaa</p>
+             
                 </TableCell>
                 <TableCell>
                   {Array.isArray(selectedProducts[row?.categories_name]) &&
@@ -139,6 +148,10 @@ export default function PcBuilderPage() {
           </TableBody>
         </Table>
       </TableContainer>
+   
+
+
+
     </>
   );
 }

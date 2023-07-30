@@ -178,7 +178,7 @@ export default ProductList;
 
 export const getServerSideProps = async (context) => {
   const { id } = context.query;
-  const res = await fetch(`http://localhost:3000/api/categories`);
+  const res = await fetch(`https://pc-builder-two.vercel.app/api/categories`);
   const categories = await res.json();
   
   // Extract the products with the matching ID from the first category
