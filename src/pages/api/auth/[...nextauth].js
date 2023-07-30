@@ -47,7 +47,7 @@ export default async function auth(req, res) {
     ],
 
     pages: {
-      signIn: "http://localhost:3000/login",
+      signIn: "https://pc-builder-final.vercel.app/login",
     },
     secret: process.env.NEXTAUTH_SECRET,
   });

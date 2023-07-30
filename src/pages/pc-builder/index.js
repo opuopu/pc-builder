@@ -1,3 +1,4 @@
+import Image from 'next/image'
 
 import * as React from "react";
 import dynamic from "next/dynamic";
@@ -123,16 +124,29 @@ export default function PcBuilderPage() {
                   {Array.isArray(selectedProducts[row?.categories_name]) &&
                     selectedProducts[row?.categories_name].map((p) => (
                       <React.Fragment key={p?.name}>
-                        <p >{p?.name}</p>
-                        <p>{p?.price}</p>
-                        <IconButton
-                          onClick={() => handleRemove(p?.category, p?.name)}
-                          align="right"
-                          aria-label="delete"
-                          size="large"
-                        >
-                          <DeleteIcon fontSize="inherit" />
-                        </IconButton>
+               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+      <div style={{ width: '100px', height: '100px', position: 'relative' }}>
+        <Image
+          src={p?.image}
+          layout="fill"
+          objectFit="contain"
+          alt="Picture of the product"
+        />
+      </div>
+      <p style={{ color: customColor.cardColor, fontWeight: 600, fontSize: '16px' }}>
+        {p?.name}
+      </p>
+      <p style={{ color: customColor.cardColor, fontWeight: 600 }}> ${p?.price}</p>
+      <IconButton
+        onClick={() => handleRemove(p?.category, p?.name)}
+        align="right"
+        aria-label="delete"
+        size="large"
+      >
+        <DeleteIcon fontSize="inherit" style={{ color: customColor.buttonColor }} />
+      </IconButton>
+    </div>
+
                       </React.Fragment>
                     ))}
                 </TableCell>

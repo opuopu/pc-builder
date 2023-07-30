@@ -95,7 +95,7 @@ const Navbar = ({ children }) => {
             <>
               <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                 <Link href={"/"}>
-                  <Button style={{ color: "#f1f8e9" }}>PC MART</Button>
+                  <Button style={{ color: customColor.buttonSecondery,fontWeight:"600" }}>PC MART</Button>
                 </Link>
               </Typography>
               <List
