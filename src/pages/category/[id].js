@@ -47,7 +47,7 @@ const CategoryProducts = () => {
               style={{
                 width: "100%",
                 height: cardHeight,
-                backgroundColor:customColor
+                backgroundColor:customColor.cardColor
               }}
             >
               <CardActionArea>
